@@ -29,9 +29,21 @@ def meminfo():
 	mem_free=mem_info.free/1024/1024
 	mem_images="The memory images is:\nmem_total:%6sM\tmem_used:%6sM\tmem_free:%6sM\n" % (mem_total,mem_used,mem_free)
 	return mem_images
+
+def ioinfo():
+	io_info=psutil.disk_io_counters()
+	io_read_count=io_info.read_count
+	io_write_count=io_info.write_count
+	io_read_bytes=io_info.read_bytes
+	io_write_bytes=io_info.write_bytes
+	io_images="io_read_count:%6s\tio_write_count:%6s\tio_read_bytes:%6s\tio_write_bytes:%6s\n" % (io_read_count,io_write_count,io_read_bytes,io_write_bytes)
+	return io_images
+
+
 p=cpuinfo()
 f=diskinfo()
 m=meminfo()
+o=ioinfo()
 print p
 print "分区\tdisk_total\tdisk_used\tdisk_free"
 for k ,v in f.items():
@@ -39,3 +51,4 @@ for k ,v in f.items():
 		k=k+"\t"+str(i/1024/1024)+"M"
 	print k
 print m
+print o
