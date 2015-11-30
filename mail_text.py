@@ -9,7 +9,7 @@ import string
 HOST="smtp.163.com"
 FROM="j99e99@163.com"
 TO="704952527@qq.com"
-PASSWORD="jin@4314"
+PASSWORD="xxxxx"
 SUBJECT="This is a test mail"
 image="just test"
 
